@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textView" type="id" />
+    <item name="textView2" type="id" />
+    <item name="textViewSize" type="id" />
+    <item name="seekBarSize" type="id" />
+    <item name="textView3" type="id" />
+    <item name="chipChicken" type="id" />
+    <item name="chipPepperoni" type="id" />
+    <item name="chipGreenPeppers" type="id" />
+    <item name="buttonAddToOrder" type="id" />
+    <item name="buttonPlaceOrder" type="id" />
+    <item name="recyclerViewOrder" type="id" />
+    <item name="textOrder" type="id" />
+</resources>
