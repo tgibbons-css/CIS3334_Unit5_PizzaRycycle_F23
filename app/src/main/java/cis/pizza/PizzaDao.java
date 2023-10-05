@@ -1,5 +1,6 @@
 package cis.pizza;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -10,7 +11,7 @@ import java.util.List;
 @Dao
 public interface PizzaDao {
     @Query("SELECT * FROM Pizza")
-    List<Pizza> getAll();
+    LiveData<List<Pizza>> getAll();
 
     @Query("SELECT * FROM Pizza WHERE id = :Id")
     Pizza getByIds(int Id);

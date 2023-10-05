@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.google.android.material.chip.Chip;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     MainViewModel mainViewModel;
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupLiveDataObserver () {
-        // Create the observer which updates the UI.
+        // ===== Order Status ===== Create the observer for the order status which updates the UI.
         final Observer<String> statusObserver = new Observer<String>() {
             @Override
             public void onChanged(@Nullable final String newStatus) {
@@ -111,6 +113,17 @@ public class MainActivity extends AppCompatActivity {
         };
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
         mainViewModel.getOrderStatus().observe(this, statusObserver);
+
+        // ===== Pizza Orders ===== Create the observer for the list of Pizza Orders
+        mainViewModel.getAllOrder().observe(this, new Observer<List<Pizza>>() {
+            @Override
+            public void onChanged(@Nullable List<Pizza> allPizzasInOrder) {
+                Log.d("CIS 3334", "MainActivity->LiveData Observer -- List of Pizzas changed");
+                Log.d("CIS 3334", "MainActivity -- Number of Pizzas = "+allPizzasInOrder.size());
+
+                // TODO: update the RecycleView Array Adapter
+            }
+        });
     }
 
     /***
